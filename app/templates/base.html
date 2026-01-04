@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{{ title or "ProductionSim" }}</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="brand">ProductionSim</div>
+    <div class="user">
+      {% if user %}
+        {{ user.email }} ({{ user.role.value }})
+      {% endif %}
+      <a href="/logout">Logout</a>
+    </div>
+  </div>
+  <div class="nav">
+    <a href="/plan/parts">Planning</a>
+    <a href="/mfg/parts">Manufacturing</a>
+    <a href="/prod/dashboard">Production</a>
+    <a href="/exec/dashboard">Executive</a>
+    <a href="/admin/users">Admin</a>
+  </div>
+  <div class="content">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

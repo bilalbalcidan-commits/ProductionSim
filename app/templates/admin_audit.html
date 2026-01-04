@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin - Audit Log</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>When</th><th>User ID</th><th>Action</th><th>Entity</th><th>Entity ID</th><th>Detail</th></tr></thead>
+    <tbody>
+      {% for l in logs %}
+      <tr>
+        <td class="mono">{{ l.created_at }}</td>
+        <td class="mono">{{ l.user_id }}</td>
+        <td class="mono">{{ l.action }}</td>
+        <td class="mono">{{ l.entity }}</td>
+        <td class="mono">{{ l.entity_id }}</td>
+        <td>{{ l.detail or "" }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

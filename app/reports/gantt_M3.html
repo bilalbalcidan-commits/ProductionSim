@@ -1,0 +1,2020 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ProductionSim Gantt (Offline Bars)</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 16px; }
+    .meta { font-size: 12px; color: #333; margin-bottom: 10px; }
+    .grid {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .header, .row {
+      display: grid;
+      grid-template-columns: 70px 260px 1fr 190px 190px;
+      align-items: center;
+    }
+    .header {
+      background: #f2f2f2;
+      font-weight: bold;
+      font-size: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 2;
+    }
+    .cell {
+      padding: 6px 8px;
+      border-bottom: 1px solid #eee;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .barcell {
+      position: relative;
+      height: 18px;
+      background: #fafafa;
+      border-left: 1px solid #eee;
+      border-right: 1px solid #eee;
+    }
+    .bar {
+      position: absolute;
+      top: 2px;
+      height: 14px;
+      border-radius: 6px;
+    }
+    .machine { font-weight: bold; }
+    .time { font-family: Consolas, monospace; font-size: 11px; color: #222; }
+  </style>
+</head>
+<body>
+  <h2>ProductionSim - Offline Gantt (Bars)</h2>
+  <div class="meta">
+    Total segments: 195<br/>
+    Range: 2026-01-06 09:00:00 → 2026-04-16 15:30:00 (total 144390 min)
+  </div>
+
+  <div class="grid">
+    <div class="header">
+      <div class="cell">Machine</div>
+      <div class="cell">Job</div>
+      <div class="cell">Timeline</div>
+      <div class="cell">Start</div>
+      <div class="cell">End</div>
+    </div>
+    
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L001-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:0.0000%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-06 09:00:00</div>
+          <div class="cell time">2026-01-06 09:50:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L002-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:0.0346%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-06 09:50:00</div>
+          <div class="cell time">2026-01-06 10:40:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L003-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:0.0693%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-06 10:40:00</div>
+          <div class="cell time">2026-01-06 11:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L004-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:0.1039%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-06 11:30:00</div>
+          <div class="cell time">2026-01-06 12:20:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L005-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:0.1385%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-06 12:20:00</div>
+          <div class="cell time">2026-01-06 13:10:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L006-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:0.1731%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-06 13:10:00</div>
+          <div class="cell time">2026-01-06 14:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L007-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:0.2078%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-06 14:00:00</div>
+          <div class="cell time">2026-01-06 14:50:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L008-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:0.2424%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-06 14:50:00</div>
+          <div class="cell time">2026-01-06 15:40:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L009-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:0.2770%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-06 15:40:00</div>
+          <div class="cell time">2026-01-06 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L009-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:0.9765%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-07 08:30:00</div>
+          <div class="cell time">2026-01-07 09:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L010-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:0.9973%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-07 09:00:00</div>
+          <div class="cell time">2026-01-07 09:50:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L011-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:1.0319%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-07 09:50:00</div>
+          <div class="cell time">2026-01-07 10:40:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L012-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:1.0666%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-07 10:40:00</div>
+          <div class="cell time">2026-01-07 11:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L013-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:1.1012%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-07 11:30:00</div>
+          <div class="cell time">2026-01-07 12:20:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L014-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:1.1358%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-07 12:20:00</div>
+          <div class="cell time">2026-01-07 13:10:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L015-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:1.1704%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-07 13:10:00</div>
+          <div class="cell time">2026-01-07 14:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L016-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:1.2051%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-07 14:00:00</div>
+          <div class="cell time">2026-01-07 14:50:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L017-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:1.2397%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-07 14:50:00</div>
+          <div class="cell time">2026-01-07 15:40:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L018-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:1.2743%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-07 15:40:00</div>
+          <div class="cell time">2026-01-07 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L018-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:1.9738%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-08 08:30:00</div>
+          <div class="cell time">2026-01-08 09:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L019-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:1.9946%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-08 09:00:00</div>
+          <div class="cell time">2026-01-08 09:50:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L020-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:2.0292%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-08 09:50:00</div>
+          <div class="cell time">2026-01-08 10:40:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L021-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:2.0639%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-08 10:40:00</div>
+          <div class="cell time">2026-01-08 11:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L022-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:2.0985%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-08 11:30:00</div>
+          <div class="cell time">2026-01-08 12:20:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L023-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:2.1331%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-08 12:20:00</div>
+          <div class="cell time">2026-01-08 13:10:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L024-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:2.1677%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-08 13:10:00</div>
+          <div class="cell time">2026-01-08 14:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L025-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:2.2024%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-08 14:00:00</div>
+          <div class="cell time">2026-01-08 14:50:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L026-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:2.2370%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-08 14:50:00</div>
+          <div class="cell time">2026-01-08 15:40:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L027-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:2.2716%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-08 15:40:00</div>
+          <div class="cell time">2026-01-08 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L027-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:2.9711%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-09 08:30:00</div>
+          <div class="cell time">2026-01-09 09:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L028-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:2.9919%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-09 09:00:00</div>
+          <div class="cell time">2026-01-09 09:50:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L029-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:3.0265%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-09 09:50:00</div>
+          <div class="cell time">2026-01-09 10:40:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L030-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:3.0612%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-09 10:40:00</div>
+          <div class="cell time">2026-01-09 11:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L031-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:3.0958%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-09 11:30:00</div>
+          <div class="cell time">2026-01-09 12:20:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L032-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:3.1304%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-09 12:20:00</div>
+          <div class="cell time">2026-01-09 13:10:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L033-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:3.1650%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-09 13:10:00</div>
+          <div class="cell time">2026-01-09 14:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L034-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:3.1997%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-09 14:00:00</div>
+          <div class="cell time">2026-01-09 14:50:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L035-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:3.2343%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-09 14:50:00</div>
+          <div class="cell time">2026-01-09 15:40:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L036-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:3.2689%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-09 15:40:00</div>
+          <div class="cell time">2026-01-09 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L036-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:3.9684%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-10 08:30:00</div>
+          <div class="cell time">2026-01-10 09:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L037-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:3.9892%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-10 09:00:00</div>
+          <div class="cell time">2026-01-10 09:50:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L038-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:4.0238%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-10 09:50:00</div>
+          <div class="cell time">2026-01-10 10:40:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L039-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:4.0585%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-10 10:40:00</div>
+          <div class="cell time">2026-01-10 11:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L040-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:4.0931%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-10 11:30:00</div>
+          <div class="cell time">2026-01-10 12:20:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L041-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:4.1277%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-10 12:20:00</div>
+          <div class="cell time">2026-01-10 13:10:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L042-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:4.1623%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-10 13:10:00</div>
+          <div class="cell time">2026-01-10 14:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L043-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:4.1970%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-10 14:00:00</div>
+          <div class="cell time">2026-01-10 14:50:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L044-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:4.2316%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-10 14:50:00</div>
+          <div class="cell time">2026-01-10 15:40:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L045-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:4.2662%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-10 15:40:00</div>
+          <div class="cell time">2026-01-10 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L045-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:5.9630%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-12 08:30:00</div>
+          <div class="cell time">2026-01-12 09:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L046-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:5.9838%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-12 09:00:00</div>
+          <div class="cell time">2026-01-12 09:50:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L047-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:6.0184%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-12 09:50:00</div>
+          <div class="cell time">2026-01-12 10:40:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L048-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:6.0531%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-12 10:40:00</div>
+          <div class="cell time">2026-01-12 11:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L049-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:6.0877%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-12 11:30:00</div>
+          <div class="cell time">2026-01-12 12:20:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P1-P1-L050-op2</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:6.1223%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-12 12:20:00</div>
+          <div class="cell time">2026-01-12 13:10:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L001-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:7.2512%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-13 15:30:00</div>
+          <div class="cell time">2026-01-13 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L001-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:7.9576%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-14 08:30:00</div>
+          <div class="cell time">2026-01-14 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L001-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:8.9549%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-15 08:30:00</div>
+          <div class="cell time">2026-01-15 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L002-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:9.0380%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-15 10:30:00</div>
+          <div class="cell time">2026-01-15 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L002-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:9.9522%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-16 08:30:00</div>
+          <div class="cell time">2026-01-16 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L003-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:10.1392%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-16 13:00:00</div>
+          <div class="cell time">2026-01-16 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L003-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:10.9495%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-17 08:30:00</div>
+          <div class="cell time">2026-01-17 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L004-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:11.2404%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-17 15:30:00</div>
+          <div class="cell time">2026-01-17 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L004-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:12.9441%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-19 08:30:00</div>
+          <div class="cell time">2026-01-19 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L004-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:13.9414%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-20 08:30:00</div>
+          <div class="cell time">2026-01-20 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L005-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:14.0245%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-20 10:30:00</div>
+          <div class="cell time">2026-01-20 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L005-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:14.9387%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-21 08:30:00</div>
+          <div class="cell time">2026-01-21 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L006-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:15.1257%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-21 13:00:00</div>
+          <div class="cell time">2026-01-21 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L006-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:15.9360%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-22 08:30:00</div>
+          <div class="cell time">2026-01-22 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L007-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:16.2269%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-22 15:30:00</div>
+          <div class="cell time">2026-01-22 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L007-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:16.9333%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-23 08:30:00</div>
+          <div class="cell time">2026-01-23 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L007-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:17.9306%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-24 08:30:00</div>
+          <div class="cell time">2026-01-24 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L008-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:18.0137%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-24 10:30:00</div>
+          <div class="cell time">2026-01-24 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L008-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:19.9252%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-26 08:30:00</div>
+          <div class="cell time">2026-01-26 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L009-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:20.1122%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-26 13:00:00</div>
+          <div class="cell time">2026-01-26 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L009-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:20.9225%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-27 08:30:00</div>
+          <div class="cell time">2026-01-27 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L010-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:21.2134%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-27 15:30:00</div>
+          <div class="cell time">2026-01-27 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L010-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:21.9198%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-28 08:30:00</div>
+          <div class="cell time">2026-01-28 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L010-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:22.9171%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-29 08:30:00</div>
+          <div class="cell time">2026-01-29 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L011-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:23.0002%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-29 10:30:00</div>
+          <div class="cell time">2026-01-29 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L011-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:23.9144%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-30 08:30:00</div>
+          <div class="cell time">2026-01-30 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L012-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:24.1014%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-30 13:00:00</div>
+          <div class="cell time">2026-01-30 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L012-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:24.9117%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-31 08:30:00</div>
+          <div class="cell time">2026-01-31 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L013-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:25.2026%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-01-31 15:30:00</div>
+          <div class="cell time">2026-01-31 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L013-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:26.9063%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-02 08:30:00</div>
+          <div class="cell time">2026-02-02 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L013-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:27.9036%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-03 08:30:00</div>
+          <div class="cell time">2026-02-03 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L014-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:27.9867%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-03 10:30:00</div>
+          <div class="cell time">2026-02-03 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L014-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:28.9009%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-04 08:30:00</div>
+          <div class="cell time">2026-02-04 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L015-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:29.0879%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-04 13:00:00</div>
+          <div class="cell time">2026-02-04 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L015-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:29.8982%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-05 08:30:00</div>
+          <div class="cell time">2026-02-05 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L016-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:30.1891%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-05 15:30:00</div>
+          <div class="cell time">2026-02-05 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L016-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:30.8955%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-06 08:30:00</div>
+          <div class="cell time">2026-02-06 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L016-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:31.8928%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-07 08:30:00</div>
+          <div class="cell time">2026-02-07 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L017-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:31.9759%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-07 10:30:00</div>
+          <div class="cell time">2026-02-07 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L017-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:33.8874%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-09 08:30:00</div>
+          <div class="cell time">2026-02-09 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L018-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:34.0744%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-09 13:00:00</div>
+          <div class="cell time">2026-02-09 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L018-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:34.8847%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-10 08:30:00</div>
+          <div class="cell time">2026-02-10 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L019-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:35.1756%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-10 15:30:00</div>
+          <div class="cell time">2026-02-10 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L019-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:35.8820%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-11 08:30:00</div>
+          <div class="cell time">2026-02-11 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L019-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:36.8793%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-12 08:30:00</div>
+          <div class="cell time">2026-02-12 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L020-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:36.9624%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-12 10:30:00</div>
+          <div class="cell time">2026-02-12 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L020-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:37.8766%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-13 08:30:00</div>
+          <div class="cell time">2026-02-13 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L021-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:38.0636%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-13 13:00:00</div>
+          <div class="cell time">2026-02-13 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L021-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:38.8739%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-14 08:30:00</div>
+          <div class="cell time">2026-02-14 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L022-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:39.1648%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-14 15:30:00</div>
+          <div class="cell time">2026-02-14 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L022-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:40.8685%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-16 08:30:00</div>
+          <div class="cell time">2026-02-16 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L022-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:41.8658%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-17 08:30:00</div>
+          <div class="cell time">2026-02-17 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L023-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:41.9489%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-17 10:30:00</div>
+          <div class="cell time">2026-02-17 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L023-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:42.8631%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-18 08:30:00</div>
+          <div class="cell time">2026-02-18 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L024-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:43.0501%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-18 13:00:00</div>
+          <div class="cell time">2026-02-18 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L024-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:43.8604%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-19 08:30:00</div>
+          <div class="cell time">2026-02-19 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L025-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:44.1513%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-19 15:30:00</div>
+          <div class="cell time">2026-02-19 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L025-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:44.8577%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-20 08:30:00</div>
+          <div class="cell time">2026-02-20 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L025-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:45.8550%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-21 08:30:00</div>
+          <div class="cell time">2026-02-21 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L026-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:45.9381%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-21 10:30:00</div>
+          <div class="cell time">2026-02-21 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L026-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:47.8496%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-23 08:30:00</div>
+          <div class="cell time">2026-02-23 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L027-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:48.0366%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-23 13:00:00</div>
+          <div class="cell time">2026-02-23 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L027-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:48.8469%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-24 08:30:00</div>
+          <div class="cell time">2026-02-24 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L028-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:49.1378%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-24 15:30:00</div>
+          <div class="cell time">2026-02-24 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L028-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:49.8442%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-25 08:30:00</div>
+          <div class="cell time">2026-02-25 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L028-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:50.8415%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-26 08:30:00</div>
+          <div class="cell time">2026-02-26 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L029-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:50.9246%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-26 10:30:00</div>
+          <div class="cell time">2026-02-26 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L029-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:51.8388%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-27 08:30:00</div>
+          <div class="cell time">2026-02-27 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L030-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:52.0258%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-27 13:00:00</div>
+          <div class="cell time">2026-02-27 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L030-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:52.8361%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-28 08:30:00</div>
+          <div class="cell time">2026-02-28 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L031-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:53.1269%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-02-28 15:30:00</div>
+          <div class="cell time">2026-02-28 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L031-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:54.8307%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-02 08:30:00</div>
+          <div class="cell time">2026-03-02 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L031-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:55.8280%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-03 08:30:00</div>
+          <div class="cell time">2026-03-03 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L032-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:55.9111%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-03 10:30:00</div>
+          <div class="cell time">2026-03-03 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L032-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:56.8253%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-04 08:30:00</div>
+          <div class="cell time">2026-03-04 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L033-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:57.0123%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-04 13:00:00</div>
+          <div class="cell time">2026-03-04 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L033-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:57.8226%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-05 08:30:00</div>
+          <div class="cell time">2026-03-05 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L034-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:58.1134%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-05 15:30:00</div>
+          <div class="cell time">2026-03-05 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L034-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:58.8199%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-06 08:30:00</div>
+          <div class="cell time">2026-03-06 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L034-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:59.8172%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-07 08:30:00</div>
+          <div class="cell time">2026-03-07 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L035-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:59.9003%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-07 10:30:00</div>
+          <div class="cell time">2026-03-07 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L035-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:61.8118%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-09 08:30:00</div>
+          <div class="cell time">2026-03-09 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L036-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:61.9988%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-09 13:00:00</div>
+          <div class="cell time">2026-03-09 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L036-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:62.8091%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-10 08:30:00</div>
+          <div class="cell time">2026-03-10 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L037-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:63.0999%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-10 15:30:00</div>
+          <div class="cell time">2026-03-10 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L037-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:63.8064%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-11 08:30:00</div>
+          <div class="cell time">2026-03-11 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L037-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:64.8037%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-12 08:30:00</div>
+          <div class="cell time">2026-03-12 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L038-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:64.8868%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-12 10:30:00</div>
+          <div class="cell time">2026-03-12 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L038-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:65.8010%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-13 08:30:00</div>
+          <div class="cell time">2026-03-13 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L039-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:65.9879%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-13 13:00:00</div>
+          <div class="cell time">2026-03-13 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L039-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:66.7983%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-14 08:30:00</div>
+          <div class="cell time">2026-03-14 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L040-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:67.0891%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-14 15:30:00</div>
+          <div class="cell time">2026-03-14 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L040-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:68.7929%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-16 08:30:00</div>
+          <div class="cell time">2026-03-16 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L040-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:69.7902%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-17 08:30:00</div>
+          <div class="cell time">2026-03-17 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L041-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:69.8733%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-17 10:30:00</div>
+          <div class="cell time">2026-03-17 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L041-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:70.7875%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-18 08:30:00</div>
+          <div class="cell time">2026-03-18 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L042-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:70.9744%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-18 13:00:00</div>
+          <div class="cell time">2026-03-18 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L042-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:71.7847%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-19 08:30:00</div>
+          <div class="cell time">2026-03-19 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L043-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:72.0756%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-19 15:30:00</div>
+          <div class="cell time">2026-03-19 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L043-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:72.7820%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-20 08:30:00</div>
+          <div class="cell time">2026-03-20 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L043-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:73.7793%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-21 08:30:00</div>
+          <div class="cell time">2026-03-21 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L044-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:73.8625%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-21 10:30:00</div>
+          <div class="cell time">2026-03-21 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L044-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:75.7739%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-23 08:30:00</div>
+          <div class="cell time">2026-03-23 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L045-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:75.9609%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-23 13:00:00</div>
+          <div class="cell time">2026-03-23 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L045-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:76.7712%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-24 08:30:00</div>
+          <div class="cell time">2026-03-24 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L046-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:77.0621%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-24 15:30:00</div>
+          <div class="cell time">2026-03-24 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L046-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:77.7685%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-25 08:30:00</div>
+          <div class="cell time">2026-03-25 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L046-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:78.7658%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-26 08:30:00</div>
+          <div class="cell time">2026-03-26 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L047-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:78.8490%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-26 10:30:00</div>
+          <div class="cell time">2026-03-26 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L047-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:79.7631%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-27 08:30:00</div>
+          <div class="cell time">2026-03-27 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L048-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:79.9501%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-27 13:00:00</div>
+          <div class="cell time">2026-03-27 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L048-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:80.7604%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-28 08:30:00</div>
+          <div class="cell time">2026-03-28 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L049-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:81.0513%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-28 15:30:00</div>
+          <div class="cell time">2026-03-28 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L049-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:82.7550%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-30 08:30:00</div>
+          <div class="cell time">2026-03-30 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L049-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:83.7523%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-31 08:30:00</div>
+          <div class="cell time">2026-03-31 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L050-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:83.8354%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-03-31 10:30:00</div>
+          <div class="cell time">2026-03-31 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L050-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:84.7496%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-01 08:30:00</div>
+          <div class="cell time">2026-04-01 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L051-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:84.9366%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-01 13:00:00</div>
+          <div class="cell time">2026-04-01 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L051-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:85.7469%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-02 08:30:00</div>
+          <div class="cell time">2026-04-02 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L052-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:86.0378%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-02 15:30:00</div>
+          <div class="cell time">2026-04-02 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L052-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:86.7442%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-03 08:30:00</div>
+          <div class="cell time">2026-04-03 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L052-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:87.7415%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-04 08:30:00</div>
+          <div class="cell time">2026-04-04 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L053-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:87.8246%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-04 10:30:00</div>
+          <div class="cell time">2026-04-04 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L053-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:89.7361%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-06 08:30:00</div>
+          <div class="cell time">2026-04-06 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L054-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:89.9231%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-06 13:00:00</div>
+          <div class="cell time">2026-04-06 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L054-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:90.7334%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-07 08:30:00</div>
+          <div class="cell time">2026-04-07 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L055-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:91.0243%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-07 15:30:00</div>
+          <div class="cell time">2026-04-07 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L055-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:91.7307%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-08 08:30:00</div>
+          <div class="cell time">2026-04-08 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L055-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:92.7280%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-09 08:30:00</div>
+          <div class="cell time">2026-04-09 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L056-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:92.8111%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-09 10:30:00</div>
+          <div class="cell time">2026-04-09 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L056-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:93.7253%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-10 08:30:00</div>
+          <div class="cell time">2026-04-10 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L057-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:93.9123%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-10 13:00:00</div>
+          <div class="cell time">2026-04-10 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L057-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:94.7226%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-11 08:30:00</div>
+          <div class="cell time">2026-04-11 15:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L058-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:95.0135%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-11 15:30:00</div>
+          <div class="cell time">2026-04-11 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L058-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:96.7172%; width:0.3117%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-13 08:30:00</div>
+          <div class="cell time">2026-04-13 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L058-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:97.7145%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-14 08:30:00</div>
+          <div class="cell time">2026-04-14 10:30:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L059-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:97.7976%; width:0.2285%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-14 10:30:00</div>
+          <div class="cell time">2026-04-14 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L059-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:98.7118%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-15 08:30:00</div>
+          <div class="cell time">2026-04-15 13:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L060-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:98.8988%; width:0.2000%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-15 13:00:00</div>
+          <div class="cell time">2026-04-15 16:00:00</div>
+        </div>
+        
+        <div class="row">
+          <div class="cell machine">M3</div>
+          <div class="cell label">P2-P2-L060-op3</div>
+          <div class="cell barcell">
+            <div class="bar" style="left:99.7091%; width:0.2909%; background:#e15759;"></div>
+          </div>
+          <div class="cell time">2026-04-16 08:30:00</div>
+          <div class="cell time">2026-04-16 15:30:00</div>
+        </div>
+        
+  </div>
+</body>
+</html>

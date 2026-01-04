@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Cycle Time Import Preview</h2>
+
+{% if result %}
+  <div class="card">
+    <h3>Import Result</h3>
+    <p class="mono">Inserted: {{ result.inserted }} | Updated: {{ result.updated }}</p>
+    {% if result.errors and result.errors|length > 0 %}
+      <h4>Errors</h4>
+      <table>
+        <thead><tr><th>Row</th><th>Error</th></tr></thead>
+        <tbody>
+          {% for e in result.errors %}
+          <tr><td class="mono">{{ e.row }}</td><td>{{ e.error }}</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% endif %}
+  </div>
+{% endif %}
+
+{% if preview %}
+  <div class="card">
+    <h3>Preview ({{ preview.row_count }} rows total)</h3>
+    <table>
+      <thead>
+        <tr>
+          {% for c in preview.columns %}
+            <th>{{ c }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in preview.rows %}
+          <tr>
+            {% for cell in row %}
+              <td class="mono">{{ cell }}</td>
+            {% endfor %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <form method="post" action="/mfg/import/confirm">
+      <input type="hidden" name="token" value="{{ token }}" />
+      <button type="submit">Import</button>
+    </form>
+  </div>
+{% endif %}
+{% endblock %}

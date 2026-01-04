@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Cycle Times - {{ part.part_code }}</h2>
+<div class="card">
+  <table>
+    <thead><tr><th>Op No</th><th>Machine</th><th>Cycle (min/unit)</th><th>Update</th></tr></thead>
+    <tbody>
+      {% for r in routes %}
+      <tr>
+        <td class="mono">{{ r.op_no }}</td>
+        <td class="mono">{{ r.machine_id }}</td>
+        <td class="mono">{{ cycle_times.get(r.op_no).cycle_min_per_unit if cycle_times.get(r.op_no) else "" }}</td>
+        <td>
+          <form method="post">
+            <input type="hidden" name="op_no" value="{{ r.op_no }}" />
+            <input type="number" name="cycle_min_per_unit" min="1" required />
+            <button type="submit">Save</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

@@ -1,0 +1,407 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>ProductionSim - Onepage Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 16px; background:#fff; color:#111; }
+    h2 { margin: 0 0 8px 0; }
+    .mono { font-family: Consolas, monospace; font-size: 12px; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .card { border:1px solid #e5e5e5; border-radius: 10px; padding: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+    .kpis { display:flex; gap:10px; flex-wrap: wrap; }
+    .kpi { border:1px solid #eee; border-radius: 10px; padding: 10px 12px; min-width: 200px; }
+    .kpi .v { font-size: 18px; font-weight: 700; margin-top: 4px; }
+    table { border-collapse: collapse; width:100%; }
+    th, td { border-bottom:1px solid #eee; padding: 6px 8px; font-size: 12px; text-align:left; }
+    th { background:#fafafa; position: sticky; top: 0; }
+    .barwrap { background:#f6f6f6; height: 12px; border-radius: 8px; overflow:hidden; }
+    .busybar { height: 12px; background:#333; }
+    .over td { background: #fff2f2; }
+    .small { font-size: 12px; color:#444; }
+
+  </style>
+</head>
+<body>
+
+  <h2>ProductionSim — Onepage Dashboard (Offline)</h2>
+  <div class="small">
+    Range: 2026-01-06 08:30:00 → 2026-04-17 09:40:00 | Segments: 630 | Last end: 2026-03-25 18:10:00
+  </div>
+
+  <div class="kpis" style="margin-top:10px;">
+    <div class="kpi"><div class="small">Segments</div><div class="v">630</div></div>
+    <div class="kpi"><div class="small">Last end</div><div class="v mono">2026-03-25 18:10:00</div></div>
+    <div class="kpi"><div class="small">Bottleneck (max busy)</div><div class="v mono">M3</div></div>
+  </div>
+
+  <div class="grid" style="margin-top:12px;">
+    <div class="card">
+      <h3 style="margin:0 0 8px 0;">Busy Minutes (per machine)</h3>
+      <table>
+        <thead><tr><th>Machine</th><th>Busy (min)</th><th>Bar</th></tr></thead>
+        <tbody>
+          
+        <tr>
+          <td class="mono">M1</td>
+          <td class="mono">31500</td>
+          <td>
+            <div class="barwrap"><div class="busybar" style="width:81.82%"></div></div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="mono">M2</td>
+          <td class="mono">5000</td>
+          <td>
+            <div class="barwrap"><div class="busybar" style="width:12.99%"></div></div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="mono">M3</td>
+          <td class="mono">38500</td>
+          <td>
+            <div class="barwrap"><div class="busybar" style="width:100.00%"></div></div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="mono">M4</td>
+          <td class="mono">6000</td>
+          <td>
+            <div class="barwrap"><div class="busybar" style="width:15.58%"></div></div>
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="mono">M5</td>
+          <td class="mono">9000</td>
+          <td>
+            <div class="barwrap"><div class="busybar" style="width:23.38%"></div></div>
+          </td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3 style="margin:0 0 8px 0;">Weekly Load</h3>
+      <div class="small">Overload rows are highlighted.</div>
+      <div style="max-height: 360px; overflow:auto; border:1px solid #eee; border-radius: 10px; margin-top:8px;">
+        <table>
+          <thead><tr>
+            <th>Week</th><th>Machine</th><th>Cap</th><th>Load</th><th>Over</th><th>Util%</th>
+          </tr></thead>
+          <tbody>
+            
+        <tr class="">
+          <td class="mono">2026-01-05</td>
+          <td class="mono">M1</td>
+          <td class="mono">5400</td>
+          <td class="mono">2700</td>
+          <td class="mono">0</td>
+          <td class="mono">50.0</td>
+        </tr>
+        
+        <tr class="">
+          <td class="mono">2026-01-05</td>
+          <td class="mono">M2</td>
+          <td class="mono">5400</td>
+          <td class="mono">2110</td>
+          <td class="mono">0</td>
+          <td class="mono">39.1</td>
+        </tr>
+        
+        <tr class="">
+          <td class="mono">2026-01-05</td>
+          <td class="mono">M3</td>
+          <td class="mono">5400</td>
+          <td class="mono">2220</td>
+          <td class="mono">0</td>
+          <td class="mono">41.1</td>
+        </tr>
+        
+        <tr class="">
+          <td class="mono">2026-01-05</td>
+          <td class="mono">M5</td>
+          <td class="mono">5400</td>
+          <td class="mono">2170</td>
+          <td class="mono">0</td>
+          <td class="mono">40.2</td>
+        </tr>
+        
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top:12px;">
+    
+        <div class="card">
+          <h3 style="margin:0 0 8px 0;">Load Breakdown - M1</h3>
+          <div class="small">
+            Avail: 5400 min | Load: 31500 min | Over: 26100 min | Util: 583.3%
+          </div>
+          <div style="max-height: 260px; overflow:auto; border:1px solid #eee; border-radius: 10px; margin-top:8px;">
+            <table>
+              <thead><tr><th>Part</th><th>Op</th><th>Load</th><th>Share%</th><th>Cap%</th></tr></thead>
+              <tbody>
+                
+            <tr>
+              <td class="mono">P2</td>
+              <td class="mono">1</td>
+              <td class="mono">30000</td>
+              <td class="mono">95.2</td>
+              <td class="mono">555.6</td>
+            </tr>
+            
+            <tr>
+              <td class="mono">P1</td>
+              <td class="mono">1</td>
+              <td class="mono">1500</td>
+              <td class="mono">4.8</td>
+              <td class="mono">27.8</td>
+            </tr>
+            
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3 style="margin:0 0 8px 0;">Load Breakdown - M2</h3>
+          <div class="small">
+            Avail: 5400 min | Load: 5000 min | Over: 0 min | Util: 92.6%
+          </div>
+          <div style="max-height: 260px; overflow:auto; border:1px solid #eee; border-radius: 10px; margin-top:8px;">
+            <table>
+              <thead><tr><th>Part</th><th>Op</th><th>Load</th><th>Share%</th><th>Cap%</th></tr></thead>
+              <tbody>
+                
+            <tr>
+              <td class="mono">P1</td>
+              <td class="mono">4</td>
+              <td class="mono">5000</td>
+              <td class="mono">100.0</td>
+              <td class="mono">92.6</td>
+            </tr>
+            
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3 style="margin:0 0 8px 0;">Load Breakdown - M3</h3>
+          <div class="small">
+            Avail: 5400 min | Load: 38500 min | Over: 33100 min | Util: 713.0%
+          </div>
+          <div style="max-height: 260px; overflow:auto; border:1px solid #eee; border-radius: 10px; margin-top:8px;">
+            <table>
+              <thead><tr><th>Part</th><th>Op</th><th>Load</th><th>Share%</th><th>Cap%</th></tr></thead>
+              <tbody>
+                
+            <tr>
+              <td class="mono">P2</td>
+              <td class="mono">3</td>
+              <td class="mono">36000</td>
+              <td class="mono">93.5</td>
+              <td class="mono">666.7</td>
+            </tr>
+            
+            <tr>
+              <td class="mono">P1</td>
+              <td class="mono">2</td>
+              <td class="mono">2500</td>
+              <td class="mono">6.5</td>
+              <td class="mono">46.3</td>
+            </tr>
+            
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3 style="margin:0 0 8px 0;">Load Breakdown - M4</h3>
+          <div class="small">
+            Avail: 5400 min | Load: 6000 min | Over: 600 min | Util: 111.1%
+          </div>
+          <div style="max-height: 260px; overflow:auto; border:1px solid #eee; border-radius: 10px; margin-top:8px;">
+            <table>
+              <thead><tr><th>Part</th><th>Op</th><th>Load</th><th>Share%</th><th>Cap%</th></tr></thead>
+              <tbody>
+                
+            <tr>
+              <td class="mono">P2</td>
+              <td class="mono">4</td>
+              <td class="mono">6000</td>
+              <td class="mono">100.0</td>
+              <td class="mono">111.1</td>
+            </tr>
+            
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="card">
+          <h3 style="margin:0 0 8px 0;">Load Breakdown - M5</h3>
+          <div class="small">
+            Avail: 5400 min | Load: 9000 min | Over: 3600 min | Util: 166.7%
+          </div>
+          <div style="max-height: 260px; overflow:auto; border:1px solid #eee; border-radius: 10px; margin-top:8px;">
+            <table>
+              <thead><tr><th>Part</th><th>Op</th><th>Load</th><th>Share%</th><th>Cap%</th></tr></thead>
+              <tbody>
+                
+            <tr>
+              <td class="mono">P2</td>
+              <td class="mono">2</td>
+              <td class="mono">6000</td>
+              <td class="mono">66.7</td>
+              <td class="mono">111.1</td>
+            </tr>
+            
+            <tr>
+              <td class="mono">P1</td>
+              <td class="mono">3</td>
+              <td class="mono">3000</td>
+              <td class="mono">33.3</td>
+              <td class="mono">55.6</td>
+            </tr>
+            
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+  </div>
+
+  <div class="card" style="margin-top:12px;">
+    <h3 style="margin:0 0 8px 0;">Manual Verification – Routing & Inputs</h3>
+    <div class="small">Exact scenario inputs used for capacity/load math.</div>
+    <div class="small" style="margin-top:8px;">Table 1 — Part Routing (Operation Order)</div>
+    <div style="max-height: 320px; overflow:auto; border:1px solid #eee; border-radius: 10px; margin-top:6px;">
+      <table>
+        <thead><tr>
+          <th>Part</th><th>Weekly_Target_Qty</th><th>Op_Count</th><th>Op1_Machine</th><th>Op2_Machine</th><th>Op3_Machine</th><th>Op4_Machine</th>
+        </tr></thead>
+        <tbody>
+          
+        <tr>
+          <td class="mono">P1</td>
+          <td class="mono">500</td>
+          <td class="mono">4</td>
+          <td class="mono">M1</td><td class="mono">M3</td><td class="mono">M5</td><td class="mono">M2</td>
+        </tr>
+        
+        <tr>
+          <td class="mono">P2</td>
+          <td class="mono">600</td>
+          <td class="mono">4</td>
+          <td class="mono">M1</td><td class="mono">M5</td><td class="mono">M3</td><td class="mono">M4</td>
+        </tr>
+        
+        </tbody>
+      </table>
+    </div>
+    <div class="small" style="margin-top:12px;">Table 2 — All Part-Operation Inputs (Full Detail)</div>
+    <div style="max-height: 420px; overflow:auto; border:1px solid #eee; border-radius: 10px; margin-top:6px;">
+      <table>
+        <thead><tr>
+          <th>Part</th><th>Weekly_Target_Qty</th><th>Op_No</th><th>Machine</th>
+          <th>Cycle_Min_Per_Unit</th><th>Derived_Load_Min</th><th>Derived_Load_Hours</th>
+        </tr></thead>
+        <tbody>
+          
+            <tr>
+              <td class="mono">P1</td>
+              <td class="mono">500</td>
+              <td class="mono">1</td>
+              <td class="mono">M1</td>
+              <td class="mono">3.00</td>
+              <td class="mono">1500.00</td>
+              <td class="mono">25.00</td>
+            </tr>
+            
+            <tr>
+              <td class="mono">P1</td>
+              <td class="mono">500</td>
+              <td class="mono">2</td>
+              <td class="mono">M3</td>
+              <td class="mono">5.00</td>
+              <td class="mono">2500.00</td>
+              <td class="mono">41.67</td>
+            </tr>
+            
+            <tr>
+              <td class="mono">P1</td>
+              <td class="mono">500</td>
+              <td class="mono">3</td>
+              <td class="mono">M5</td>
+              <td class="mono">6.00</td>
+              <td class="mono">3000.00</td>
+              <td class="mono">50.00</td>
+            </tr>
+            
+            <tr>
+              <td class="mono">P1</td>
+              <td class="mono">500</td>
+              <td class="mono">4</td>
+              <td class="mono">M2</td>
+              <td class="mono">10.00</td>
+              <td class="mono">5000.00</td>
+              <td class="mono">83.33</td>
+            </tr>
+            
+            <tr>
+              <td class="mono">P2</td>
+              <td class="mono">600</td>
+              <td class="mono">1</td>
+              <td class="mono">M1</td>
+              <td class="mono">50.00</td>
+              <td class="mono">30000.00</td>
+              <td class="mono">500.00</td>
+            </tr>
+            
+            <tr>
+              <td class="mono">P2</td>
+              <td class="mono">600</td>
+              <td class="mono">2</td>
+              <td class="mono">M5</td>
+              <td class="mono">10.00</td>
+              <td class="mono">6000.00</td>
+              <td class="mono">100.00</td>
+            </tr>
+            
+            <tr>
+              <td class="mono">P2</td>
+              <td class="mono">600</td>
+              <td class="mono">3</td>
+              <td class="mono">M3</td>
+              <td class="mono">60.00</td>
+              <td class="mono">36000.00</td>
+              <td class="mono">600.00</td>
+            </tr>
+            
+            <tr>
+              <td class="mono">P2</td>
+              <td class="mono">600</td>
+              <td class="mono">4</td>
+              <td class="mono">M4</td>
+              <td class="mono">10.00</td>
+              <td class="mono">6000.00</td>
+              <td class="mono">100.00</td>
+            </tr>
+            
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+</html>

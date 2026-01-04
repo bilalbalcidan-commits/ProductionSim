@@ -1,0 +1,57 @@
+{
+  "simulation": {
+    "start_datetime": "2026-01-06T08:00:00",
+    "timezone": "Europe/Istanbul",
+    "calendar": {
+      "workdays": ["MON", "TUE", "WED", "THU", "FRI", "SAT"],
+      "offdays": ["SUN"],
+      "shifts": [
+        { "start": "08:00", "end": "16:00", "break_min": 30 },
+        { "start": "16:00", "end": "00:00", "break_min": 30 }
+      ]
+    },
+    "lotting": {
+      "mode": "auto_cycle_based",
+      "target_lot_time_min": 60,
+      "min_visual_lot_qty": 10
+    },
+    "dispatch": {
+      "strategy": "bottleneck_first",
+      "bottleneck_machine_id": "M3",
+      "variant": "earliest_to_bottleneck"
+    }
+  },
+  "machines": [
+    { "machine_id": "M1", "name": "M1", "capacity": 1 },
+    { "machine_id": "M2", "name": "M2", "capacity": 1 },
+    { "machine_id": "M3", "name": "M3", "capacity": 1 },
+    { "machine_id": "M4", "name": "M4", "capacity": 1 },
+    { "machine_id": "M5", "name": "M5", "capacity": 1 }
+  ],
+  "parts": [
+    {
+      "part_id": "P1",
+      "name": "Parça-1",
+      "weekly_target_qty": 500,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        { "op_no": 1, "machine_id": "M1", "cycle_min_per_unit": 3 },
+        { "op_no": 2, "machine_id": "M3", "cycle_min_per_unit": 5 },
+        { "op_no": 3, "machine_id": "M5", "cycle_min_per_unit": 6 },
+        { "op_no": 4, "machine_id": "M2", "cycle_min_per_unit": 10 }
+      ]
+    },
+    {
+      "part_id": "P2",
+      "name": "Parça-2",
+      "weekly_target_qty": 600,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        { "op_no": 1, "machine_id": "M1", "cycle_min_per_unit": 50 },
+        { "op_no": 2, "machine_id": "M5", "cycle_min_per_unit": 10 },
+        { "op_no": 3, "machine_id": "M3", "cycle_min_per_unit": 60 },
+        { "op_no": 4, "machine_id": "M4", "cycle_min_per_unit": 10 }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,824 @@
+{
+  "machines": [
+    {
+      "machine_id": "M1",
+      "name": "M1",
+      "capacity": 1
+    },
+    {
+      "machine_id": "M2",
+      "name": "M2",
+      "capacity": 1
+    },
+    {
+      "machine_id": "M3",
+      "name": "M3",
+      "capacity": 1
+    },
+    {
+      "machine_id": "M4",
+      "name": "M4",
+      "capacity": 1
+    },
+    {
+      "machine_id": "M5",
+      "name": "M5",
+      "capacity": 1
+    }
+  ],
+  "parts": [
+    {
+      "part_id": "A Part",
+      "name": "A Part",
+      "weekly_target_qty": 20,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 4.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 4.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 6.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 5.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 5.0
+        }
+      ]
+    },
+    {
+      "part_id": "B Part",
+      "name": "B Part",
+      "weekly_target_qty": 300,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 13.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 3.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 15.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 3.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 15.0
+        }
+      ]
+    },
+    {
+      "part_id": "C Part",
+      "name": "C Part",
+      "weekly_target_qty": 22,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 1.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 17.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 17.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 17.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 9.0
+        }
+      ]
+    },
+    {
+      "part_id": "D Part",
+      "name": "D Part",
+      "weekly_target_qty": 13,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 9.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 10.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 10.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 18.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 10.0
+        }
+      ]
+    },
+    {
+      "part_id": "E Part",
+      "name": "E Part",
+      "weekly_target_qty": 222,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 6.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 9.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 1.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 6.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 1.0
+        }
+      ]
+    },
+    {
+      "part_id": "F Part",
+      "name": "F Part",
+      "weekly_target_qty": 500,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 15.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 19.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 11.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 1.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 16.0
+        }
+      ]
+    },
+    {
+      "part_id": "G Part",
+      "name": "G Part",
+      "weekly_target_qty": 600,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 8.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 8.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 19.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 19.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 8.0
+        }
+      ]
+    },
+    {
+      "part_id": "H Part",
+      "name": "H Part",
+      "weekly_target_qty": 564,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 6.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 6.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 1.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 6.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 6.0
+        }
+      ]
+    },
+    {
+      "part_id": "I Part",
+      "name": "I Part",
+      "weekly_target_qty": 365,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 19.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 10.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 19.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 2.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 13.0
+        }
+      ]
+    },
+    {
+      "part_id": "J Part",
+      "name": "J Part",
+      "weekly_target_qty": 33,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 6.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 19.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 10.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 19.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 6.0
+        }
+      ]
+    },
+    {
+      "part_id": "K Part",
+      "name": "K Part",
+      "weekly_target_qty": 125,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 18.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 18.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 18.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 18.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 8.0
+        }
+      ]
+    },
+    {
+      "part_id": "L Part",
+      "name": "L Part",
+      "weekly_target_qty": 497,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 9.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 9.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 6.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 13.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 9.0
+        }
+      ]
+    },
+    {
+      "part_id": "M Part",
+      "name": "M Part",
+      "weekly_target_qty": 582,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 6.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 16.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 12.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 17.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 12.0
+        }
+      ]
+    },
+    {
+      "part_id": "N Part",
+      "name": "N Part",
+      "weekly_target_qty": 1647,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 18.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 4.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 18.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 18.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 4.0
+        }
+      ]
+    },
+    {
+      "part_id": "O Part",
+      "name": "O Part",
+      "weekly_target_qty": 22,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 10.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 20.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 13.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 3.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 13.0
+        }
+      ]
+    },
+    {
+      "part_id": "P Part",
+      "name": "P Part",
+      "weekly_target_qty": 136,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 17.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 17.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 17.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 17.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 9.0
+        }
+      ]
+    },
+    {
+      "part_id": "R Part",
+      "name": "R Part",
+      "weekly_target_qty": 197,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 4.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 18.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 18.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 18.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 18.0
+        }
+      ]
+    },
+    {
+      "part_id": "S Part",
+      "name": "S Part",
+      "weekly_target_qty": 153,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 15.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 15.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 14.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 5.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 5.0
+        }
+      ]
+    },
+    {
+      "part_id": "T Part",
+      "name": "T Part",
+      "weekly_target_qty": 112,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 6.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 12.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 20.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 12.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 12.0
+        }
+      ]
+    },
+    {
+      "part_id": "U Part",
+      "name": "U Part",
+      "weekly_target_qty": 119,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 16.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 7.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 20.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M5",
+          "cycle_min_per_unit": 7.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 17.0
+        }
+      ]
+    },
+    {
+      "part_id": "V Part",
+      "name": "V Part",
+      "weekly_target_qty": 900,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 17.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 13.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 17.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 4.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 17.0
+        }
+      ]
+    },
+    {
+      "part_id": "Y Part",
+      "name": "Y Part",
+      "weekly_target_qty": 545,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 7.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 20.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M4",
+          "cycle_min_per_unit": 7.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 20.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 17.0
+        }
+      ]
+    },
+    {
+      "part_id": "Z Part",
+      "name": "Z Part",
+      "weekly_target_qty": 665,
+      "release_datetime": "2026-01-06T08:00:00",
+      "route": [
+        {
+          "op_no": 1,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 7.0
+        },
+        {
+          "op_no": 2,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 7.0
+        },
+        {
+          "op_no": 3,
+          "machine_id": "M2",
+          "cycle_min_per_unit": 11.0
+        },
+        {
+          "op_no": 4,
+          "machine_id": "M3",
+          "cycle_min_per_unit": 7.0
+        },
+        {
+          "op_no": 5,
+          "machine_id": "M1",
+          "cycle_min_per_unit": 6.0
+        }
+      ]
+    }
+  ],
+  "simulation": {
+    "start_datetime": "2026-01-06T08:00:00",
+    "timezone": "Europe/Istanbul",
+    "calendar": {
+      "workdays": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "offdays": [
+        5,
+        6
+      ],
+      "shifts": [
+        {
+          "start": "08:30",
+          "end": "16:00",
+          "break_min": 0
+        }
+      ]
+    },
+    "lotting": {
+      "mode": "fixed",
+      "target_lot_time_min": 120,
+      "min_visual_lot_qty": 10
+    },
+    "dispatch": {
+      "strategy": "FIFO",
+      "variant": "B1",
+      "bottleneck_machine_id": ""
+    }
+  }
+}

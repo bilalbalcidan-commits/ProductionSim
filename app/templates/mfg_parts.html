@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Manufacturing - Cycle Times</h2>
+<form method="get" class="inline">
+  <label>Factory</label>
+  <select name="factory_id" onchange="this.form.submit()">
+    {% for f in factories %}
+      <option value="{{ f.id }}" {% if f.id == selected_factory %}selected{% endif %}>{{ f.name }}</option>
+    {% endfor %}
+  </select>
+</form>
+
+<div class="card">
+  <table>
+    <thead><tr><th>Part</th><th>Name</th><th>Actions</th></tr></thead>
+    <tbody>
+      {% for p in parts %}
+      <tr>
+        <td class="mono">{{ p.part_code }}</td>
+        <td>{{ p.name }}</td>
+        <td><a href="/mfg/parts/{{ p.id }}/cycle">Edit Cycle Times</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <a href="/mfg/import">Import Cycle Times (Excel/CSV)</a>
+</div>
+{% endblock %}

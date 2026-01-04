@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Executive Dashboard</h2>
+<form method="get" class="inline">
+  <label>Factory</label>
+  <select name="factory_id" onchange="this.form.submit()">
+    <option value="all" {% if selected_factory == "all" %}selected{% endif %}>All Factories (Aggregate)</option>
+    {% for f in factories %}
+      <option value="{{ f.id }}" {% if f.id|string == selected_factory|string %}selected{% endif %}>{{ f.name }}</option>
+    {% endfor %}
+  </select>
+</form>
+
+<div class="card">
+  <form method="post" action="/api/run">
+    {% if selected_factory != "all" %}
+      <input type="hidden" name="factory_id" value="{{ selected_factory }}" />
+    {% endif %}
+    <button type="submit">Run Simulation</button>
+  </form>
+</div>
+
+<div class="card">
+  <h3>Recent Runs</h3>
+  <table>
+    <thead><tr><th>ID</th><th>Status</th><th>Created</th><th>Dashboard</th></tr></thead>
+    <tbody>
+      {% for r in runs %}
+      <tr>
+        <td class="mono">{{ r.id }}</td>
+        <td class="mono">{{ r.status }}</td>
+        <td class="mono">{{ r.created_at }}</td>
+        <td>
+          {% if r.dashboard_html_path %}
+            <a href="/reports/{{ r.id }}/dashboard" target="_blank">Open</a>
+          {% else %}
+            -
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

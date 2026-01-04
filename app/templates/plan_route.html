@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Routing - {{ part.part_code }}</h2>
+<div class="card">
+  <h3>Add / Update Step</h3>
+  <form method="post">
+    <label>Op No</label>
+    <input name="op_no" type="number" min="1" required />
+    <label>Machine ID</label>
+    <input name="machine_id" required />
+    <label>Op Name</label>
+    <input name="op_name" />
+    <button type="submit">Save Step</button>
+  </form>
+</div>
+
+<div class="card">
+  <h3>Current Route</h3>
+  <table>
+    <thead><tr><th>Op No</th><th>Machine</th><th>Op Name</th><th>Actions</th></tr></thead>
+    <tbody>
+      {% for r in routes %}
+      <tr>
+        <td class="mono">{{ r.op_no }}</td>
+        <td class="mono">{{ r.machine_id }}</td>
+        <td>{{ r.op_name or "" }}</td>
+        <td>
+          <form method="post" action="/plan/route/{{ r.id }}/delete">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

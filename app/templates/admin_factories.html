@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin - Factories</h2>
+<div class="card">
+  <h3>Create Factory</h3>
+  <form method="post">
+    <label>Name</label>
+    <input name="name" required />
+    <label>Timezone</label>
+    <input name="timezone" value="Europe/Istanbul" />
+    <button type="submit">Create</button>
+  </form>
+</div>
+
+<div class="card">
+  <h3>Factories</h3>
+  <table>
+    <thead><tr><th>Name</th><th>Timezone</th></tr></thead>
+    <tbody>
+      {% for f in factories %}
+      <tr>
+        <td class="mono">{{ f.name }}</td>
+        <td class="mono">{{ f.timezone }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

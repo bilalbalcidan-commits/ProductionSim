@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Planning - Parts</h2>
+<form method="get" class="inline">
+  <label>Factory</label>
+  <select name="factory_id" onchange="this.form.submit()">
+    {% for f in factories %}
+      <option value="{{ f.id }}" {% if f.id == selected_factory %}selected{% endif %}>{{ f.name }}</option>
+    {% endfor %}
+  </select>
+</form>
+
+<div class="card">
+  <h3>Create Part</h3>
+  <form method="post" action="/plan/parts">
+    <input type="hidden" name="factory_id" value="{{ selected_factory }}" />
+    <label>Part Code</label>
+    <input name="part_code" required />
+    <label>Name</label>
+    <input name="name" required />
+    <label>Weekly Target Qty</label>
+    <input name="weekly_target_qty" type="number" value="0" />
+    <label>Line</label>
+    <input name="line" />
+    <label>Product Family</label>
+    <input name="product_family" />
+    <label>Release Datetime (ISO)</label>
+    <input name="release_datetime" placeholder="2026-01-06T08:00:00" />
+    <button type="submit">Create</button>
+  </form>
+</div>
+
+<div class="card">
+  <h3>Parts</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Part</th><th>Name</th><th>Weekly Qty</th><th>Line</th><th>Family</th><th>Active</th><th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in parts %}
+      <tr>
+        <td class="mono">{{ p.part_code }}</td>
+        <td>{{ p.name }}</td>
+        <td class="mono">{{ p.weekly_target_qty }}</td>
+        <td>{{ p.line or "" }}</td>
+        <td>{{ p.product_family or "" }}</td>
+        <td class="mono">{{ "Y" if p.active else "N" }}</td>
+        <td>
+          <a href="/plan/parts/{{ p.id }}/edit">Edit</a>
+          <a href="/plan/parts/{{ p.id }}/route">Routing</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="card">
+  <a href="/plan/import">Import (Excel/CSV)</a>
+</div>
+{% endblock %}

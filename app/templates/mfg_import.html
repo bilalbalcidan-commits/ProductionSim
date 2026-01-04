@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Cycle Time Import</h2>
+<div class="card">
+  <form method="post" action="/mfg/import/preview" enctype="multipart/form-data">
+    <label>File (.xlsx or .csv)</label>
+    <input type="file" name="file" required />
+    <button type="submit">Import</button>
+  </form>
+  <p class="small">Columns: part_code, op_no, machine_id, cycle_min_per_unit</p>
+</div>
+{% endblock %}

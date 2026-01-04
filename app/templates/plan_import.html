@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Planning Import</h2>
+<div class="card">
+  <form method="post" action="/plan/import/preview" enctype="multipart/form-data">
+    <label>Factory</label>
+    <select name="factory_id">
+      {% for f in factories %}
+        <option value="{{ f.id }}">{{ f.name }}</option>
+      {% endfor %}
+    </select>
+    <label>File (.xlsx or .csv)</label>
+    <input type="file" name="file" required />
+    <button type="submit">Import</button>
+  </form>
+  <p class="small">Supports wide format (op1..opN) or long format (part_code, op_no, machine_id).</p>
+</div>
+{% endblock %}
