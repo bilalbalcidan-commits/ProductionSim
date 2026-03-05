@@ -1,0 +1,508 @@
+﻿<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ProductionSim Gantt (offline)</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Arial,sans-serif;margin:16px}
+    .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    .card{border:1px solid #ddd;border-radius:10px;padding:12px}
+    #chart{margin-top:14px;border:1px solid #eee;border-radius:12px;padding:12px;overflow:auto}
+    .lane{display:flex;align-items:flex-start;gap:10px;margin:10px 0}
+    .label{min-width:60px;font-weight:600}
+    .track{position:relative;height:26px;min-width:800px;border:1px solid #eee;border-radius:8px;background:#fafafa}
+    .bar{position:absolute;height:100%;border-radius:7px;cursor:pointer;opacity:.92;border:1px solid rgba(0,0,0,.08)}
+    .bar.wait-ok{box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+    .bar.wait-warn{box-shadow:inset 0 0 0 2px rgba(255,193,7,.85)}
+    .bar.wait-hot{box-shadow:inset 0 0 0 2px rgba(220,53,69,.92)}
+    .tooltip{position:fixed;pointer-events:none;background:#111;color:#fff;padding:8px 10px;border-radius:10px;font-size:12px;max-width:360px;display:none;white-space:pre-line}
+    .muted{color:#666;font-size:12px}
+    .pill{border:1px solid #ddd;border-radius:999px;padding:2px 8px;font-size:12px}
+    .legend{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:4px}
+    .legend .pill{padding:1px 7px}
+    .legend .ok{border-color:#b8cbe8;background:#edf4ff}
+    .legend .warn{border-color:#ffd36b;background:#fff8e1}
+    .legend .hot{border-color:#f0a0ad;background:#ffecef}
+    .mini-input{width:72px}
+    .sumtbl{margin-top:8px;border-collapse:collapse;font-size:12px}
+    .sumtbl th,.sumtbl td{border:1px solid #e5e5e5;padding:4px 8px;text-align:left}
+    .sumtbl th{background:#f7f7f7}
+    .bneck{margin-left:6px;font-size:11px;padding:1px 6px}
+    .chart-card{margin-top:12px}
+    .chart-title{font-size:12px;color:#444;margin-bottom:6px}
+    .chart-canvas{width:100%;height:140px;display:block}
+    input[type="range"]{width:240px}
+  </style>
+</head>
+<body>
+  <h2>Gantt (offline)</h2>
+
+  <div class="row card">
+    <div>
+      <div><b>events.csv</b> seç</div>
+      <input id="file" type="file" accept=".csv" />
+      <div class="muted">Dosya: app/out/events.csv</div>
+    </div>
+
+    <div>
+      <div><b>Zoom</b> <span id="zoomVal" class="pill">1.0x</span></div>
+      <input id="zoom" type="range" min="0.5" max="6" step="0.1" value="1" />
+      <div class="muted">Sürükle-bırak yok; dosya seçimi yeterli.</div>
+    </div>
+    <div>
+      <label><input id="hoverDetails" type="checkbox" /> Hover details</label>
+    </div>
+
+    <div>
+      <div class="muted" id="summary">Henüz veri yok.</div>
+    </div>
+    <div>
+      <div><b>Queue Heatmap</b></div>
+      <label class="muted">Warn wait (min) <input id="warnWait" class="mini-input" type="number" min="0" step="1" value="10" /></label>
+      <label class="muted">Hot wait (min) <input id="hotWait" class="mini-input" type="number" min="0" step="1" value="30" /></label>
+      <div class="legend">
+        <span class="pill ok">Normal</span>
+        <span class="pill warn">Warn</span>
+        <span class="pill hot">Hot</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="chart" class="card"></div>
+  <div class="card chart-card">
+    <div id="wipLabel" class="chart-title">WIP over time</div>
+    <canvas id="wipCanvas" class="chart-canvas" height="140"></canvas>
+  </div>
+  <div class="card chart-card">
+    <div id="tpLabel" class="chart-title">Throughput (cumulative completions)</div>
+    <canvas id="tpCanvas" class="chart-canvas" height="140"></canvas>
+  </div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const fileEl = document.getElementById('file');
+  const zoomEl = document.getElementById('zoom');
+  const zoomValEl = document.getElementById('zoomVal');
+  const hoverEl = document.getElementById('hoverDetails');
+  const warnEl = document.getElementById('warnWait');
+  const hotEl = document.getElementById('hotWait');
+  const chartEl = document.getElementById('chart');
+  const summaryEl = document.getElementById('summary');
+  const tipEl = document.getElementById('tt');
+  const wipCanvas = document.getElementById('wipCanvas');
+  const tpCanvas = document.getElementById('tpCanvas');
+  const wipLabelEl = document.getElementById('wipLabel');
+  const tpLabelEl = document.getElementById('tpLabel');
+
+  let state = { events: [], stations: [], t0: null, t1: null, zoom: 1, batchWindows: [] };
+
+  function parseCSV(text){
+    const lines = text.trim().split(/\r?\n/);
+    if(lines.length < 2) return [];
+    const header = lines[0].split(',').map(s => s.trim());
+    const idx = Object.fromEntries(header.map((h,i)=>[h,i]));
+    const out = [];
+    for(let i=1;i<lines.length;i++){
+      const line = lines[i].trim();
+      if(!line) continue;
+      const parts = line.split(',');
+      const e = {
+        station_id: parts[idx.station_id],
+        batch_id: parts[idx.batch_id],
+        job_id: parts[idx.job_id],
+        step_id: parts[idx.step_id],
+        start_at: parts[idx.start_at],
+        end_at: parts[idx.end_at],
+        duration_min: Number(parts[idx.duration_min] || 0),
+        transport_min: idx.transport_min !== undefined ? Number(parts[idx.transport_min] || 0) : 0
+      };
+      e.start = new Date(e.start_at);
+      e.end = new Date(e.end_at);
+      out.push(e);
+    }
+    return out;
+  }
+
+  function fmt(dt){
+    // yyyy-mm-dd hh:mm
+    const pad = n => String(n).padStart(2,'0');
+    return `${dt.getFullYear()}-${pad(dt.getMonth()+1)}-${pad(dt.getDate())} ${pad(dt.getHours())}:${pad(dt.getMinutes())}`;
+  }
+
+  function durationMin(a,b){
+    return Math.round((b - a) / 60000);
+  }
+  function stepSeq(stepId){
+    const m = String(stepId || '').match(/(?:^|-)S(\d+)(?:$|[^0-9])/i);
+    return m ? Number(m[1]) : Number.MAX_SAFE_INTEGER;
+  }
+
+  function colorFor(key){
+    // stable pseudo-color from string
+    let h=0;
+    for(let i=0;i<key.length;i++) h = (h*31 + key.charCodeAt(i)) >>> 0;
+    const r = 80 + (h % 140);
+    const g = 80 + ((h>>>8) % 140);
+    const b = 80 + ((h>>>16) % 140);
+    return `rgb(${r},${g},${b})`;
+  }
+  function escHtml(v){
+    return String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+  function showTT(text, x, y){
+    if(!tipEl) return;
+    tipEl.textContent = text;
+    tipEl.style.left = (x + 12) + 'px';
+    tipEl.style.top = (y + 12) + 'px';
+    tipEl.style.display = 'block';
+  }
+  function moveTT(x, y){
+    if(!tipEl) return;
+    tipEl.style.left = (x + 12) + 'px';
+    tipEl.style.top = (y + 12) + 'px';
+  }
+  function hideTT(){
+    if(!tipEl) return;
+    tipEl.style.display = 'none';
+  }
+  function ttTextFromBar(bar){
+    return `Job: ${bar.dataset.jobId || ''}
+Batch: ${bar.dataset.batchId || ''}
+Station: ${bar.dataset.stationId || ''}
+Step: ${bar.dataset.stepId || ''}
+Start: ${bar.dataset.startAt || ''}
+End: ${bar.dataset.endAt || ''}
+Duration: ${bar.dataset.durationMin || '0'} min`;
+  }
+  function waitThresholds(){
+    const warn = Math.max(0, Number(warnEl.value) || 0);
+    const hot = Math.max(0, Number(hotEl.value) || 0);
+    return { warn, hot };
+  }
+  function applyHeatmap(){
+    const { warn, hot } = waitThresholds();
+    const bars = chartEl.querySelectorAll('.bar');
+    for(const bar of bars){
+      const wait = Number(bar.dataset.waitMin || 0);
+      bar.classList.remove('wait-ok', 'wait-warn', 'wait-hot');
+      if(wait >= hot) bar.classList.add('wait-hot');
+      else if(wait >= warn) bar.classList.add('wait-warn');
+      else bar.classList.add('wait-ok');
+    }
+  }
+  function prepCanvas(canvas){
+    const dpr = Math.max(1, window.devicePixelRatio || 1);
+    const w = Math.max(320, canvas.clientWidth || canvas.parentElement.clientWidth || 320);
+    const h = Number(canvas.getAttribute('height')) || canvas.clientHeight || 140;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    const ctx = canvas.getContext('2d');
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return { ctx, w, h };
+  }
+  function drawAxes(ctx, w, h){
+    const pad = { l: 36, r: 10, t: 10, b: 22 };
+    ctx.clearRect(0, 0, w, h);
+    ctx.strokeStyle = '#e6e6e6';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(pad.l, pad.t);
+    ctx.lineTo(pad.l, h - pad.b);
+    ctx.lineTo(w - pad.r, h - pad.b);
+    ctx.stroke();
+    return pad;
+  }
+  function drawWIP(){
+    const { ctx, w, h } = prepCanvas(wipCanvas);
+    const pad = drawAxes(ctx, w, h);
+    const t0 = state.t0, t1 = state.t1;
+    if(!t0 || !t1 || !state.batchWindows.length || t1 <= t0){
+      wipLabelEl.textContent = 'WIP over time | Max WIP: 0';
+      return;
+    }
+    const pts = [];
+    for(const b of state.batchWindows){
+      pts.push({ t: b.entry, d: 1 });
+      pts.push({ t: b.exit, d: -1 });
+    }
+    pts.sort((a,b)=> (a.t - b.t) || (a.d - b.d));
+    let cur = 0;
+    let maxWip = 0;
+    for(const p of pts){
+      cur += p.d;
+      if(cur > maxWip) maxWip = cur;
+    }
+    const xScale = (w - pad.l - pad.r) / Math.max(1, (t1 - t0));
+    const yScale = (h - pad.t - pad.b) / Math.max(1, maxWip);
+    const xAt = t => pad.l + (t - t0) * xScale;
+    const yAt = v => h - pad.b - v * yScale;
+    ctx.strokeStyle = '#1f77b4';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    let i = 0, y = 0;
+    ctx.moveTo(xAt(t0), yAt(0));
+    while(i < pts.length){
+      const t = pts[i].t;
+      if(t < t0){ y += pts[i].d; i++; continue; }
+      if(t > t1) break;
+      const x = xAt(t);
+      ctx.lineTo(x, yAt(y));
+      while(i < pts.length && pts[i].t.getTime() === t.getTime()){
+        y += pts[i].d;
+        ctx.lineTo(x, yAt(y));
+        i++;
+      }
+    }
+    ctx.lineTo(xAt(t1), yAt(y));
+    ctx.stroke();
+    wipLabelEl.textContent = `WIP over time | Max WIP: ${maxWip}`;
+  }
+  function drawThroughput(){
+    const { ctx, w, h } = prepCanvas(tpCanvas);
+    const pad = drawAxes(ctx, w, h);
+    const t0 = state.t0, t1 = state.t1;
+    const total = state.batchWindows.length;
+    if(!t0 || !t1 || !total || t1 <= t0){
+      tpLabelEl.textContent = 'Throughput (cumulative completions) | Total: 0 | Avg rate: 0.00 /h';
+      return;
+    }
+    const exits = state.batchWindows.map(b => b.exit).sort((a,b)=>a-b);
+    const xScale = (w - pad.l - pad.r) / Math.max(1, (t1 - t0));
+    const yScale = (h - pad.t - pad.b) / Math.max(1, total);
+    const xAt = t => pad.l + (t - t0) * xScale;
+    const yAt = v => h - pad.b - v * yScale;
+    ctx.strokeStyle = '#2ca02c';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    let i = 0, y = 0;
+    ctx.moveTo(xAt(t0), yAt(0));
+    while(i < exits.length){
+      const t = exits[i];
+      if(t < t0){ i++; continue; }
+      if(t > t1) break;
+      const x = xAt(t);
+      ctx.lineTo(x, yAt(y));
+      while(i < exits.length && exits[i].getTime() === t.getTime()){
+        y += 1;
+        ctx.lineTo(x, yAt(y));
+        i++;
+      }
+    }
+    ctx.lineTo(xAt(t1), yAt(y));
+    ctx.stroke();
+    const makespanHours = Math.max(1 / 60, (t1 - t0) / 3600000);
+    const rate = total / makespanHours;
+    tpLabelEl.textContent = `Throughput (cumulative completions) | Total: ${total} | Avg rate: ${rate.toFixed(2)} /h`;
+  }
+  function renderCharts(){
+    drawWIP();
+    drawThroughput();
+  }
+
+  function render(){
+    chartEl.innerHTML = '';
+    const ev = state.events;
+    if(!ev.length){
+      summaryEl.textContent = 'Henüz veri yok.';
+      state.batchWindows = [];
+      renderCharts();
+      return;
+    }
+
+    // time bounds
+    const t0 = state.t0, t1 = state.t1;
+    const makespan = durationMin(t0,t1);
+
+    // pixels per minute baseline
+    const pxPerMin = 3 * state.zoom;
+    const trackWidth = Math.max(800, makespan * pxPerMin + 20);
+    const byStation = new Map();
+    for(const e of ev){
+      if(!byStation.has(e.station_id)) byStation.set(e.station_id, []);
+      byStation.get(e.station_id).push(e);
+    }
+
+    const busyByStation = new Map(state.stations.map(sid => [sid, 0]));
+    for(const e of ev){
+      const busy = Number.isFinite(e.duration_min) ? e.duration_min : durationMin(e.start, e.end);
+      busyByStation.set(e.station_id, (busyByStation.get(e.station_id) || 0) + Math.max(0, busy));
+    }
+    const waitByStation = new Map(state.stations.map(sid => [sid, { total: 0, max: 0, count: 0 }]));
+    const byBatchJob = new Map();
+    for(const e of ev){
+      const k = `${e.job_id}||${e.batch_id}`;
+      if(!byBatchJob.has(k)) byBatchJob.set(k, []);
+      byBatchJob.get(k).push(e);
+    }
+    for(const items of byBatchJob.values()){
+      items.sort((a,b)=>{
+        const sa = stepSeq(a.step_id);
+        const sb = stepSeq(b.step_id);
+        if(sa !== sb) return sa - sb;
+        const ts = a.start - b.start;
+        if(ts !== 0) return ts;
+        return String(a.step_id).localeCompare(String(b.step_id));
+      });
+      for(let i=0;i<items.length;i++){
+        const cur = items[i];
+        let waitMin = 0;
+        if(i > 0){
+          const prev = items[i-1];
+          const transport = Number.isFinite(cur.transport_min) ? cur.transport_min : 0;
+          const readyAt = new Date(prev.end.getTime() + Math.max(0, transport) * 60000);
+          waitMin = Math.max(0, durationMin(readyAt, cur.start));
+        }
+        cur.wait_min = waitMin;
+        const ws = waitByStation.get(cur.station_id) || { total: 0, max: 0, count: 0 };
+        ws.total += waitMin;
+        ws.max = Math.max(ws.max, waitMin);
+        ws.count += 1;
+        waitByStation.set(cur.station_id, ws);
+      }
+    }
+    state.batchWindows = Array.from(byBatchJob.values()).map(items => {
+      let entry = items[0].start;
+      let exit = items[0].end;
+      for(const item of items){
+        if(item.start < entry) entry = item.start;
+        if(item.end > exit) exit = item.end;
+      }
+      return { entry, exit };
+    });
+    const stationRows = state.stations.map(sid => {
+      const items = byStation.get(sid) || [];
+      const timeEvents = [];
+      for(const item of items){
+        timeEvents.push({ t: item.start, d: 1 });
+        timeEvents.push({ t: item.end, d: -1 });
+      }
+      timeEvents.sort((a,b)=> {
+        const dt = a.t - b.t;
+        if(dt !== 0) return dt;
+        return a.d - b.d;
+      });
+      let current = 0;
+      let maxConcurrent = 0;
+      for(const te of timeEvents){
+        current += te.d;
+        if(current > maxConcurrent) maxConcurrent = current;
+      }
+      const busyMin = Math.round(busyByStation.get(sid) || 0);
+      const idleMin = Math.max(0, makespan - busyMin);
+      const utilization = makespan > 0 ? (busyMin / makespan) : 0;
+      const maxQueue = Math.max(0, maxConcurrent - 1);
+      const waits = waitByStation.get(sid) || { total: 0, max: 0, count: 0 };
+      const avgWait = waits.count > 0 ? (waits.total / waits.count) : 0;
+      return { station_id: sid, busy_min: busyMin, idle_min: idleMin, utilization, max_queue: maxQueue, total_wait_min: waits.total, max_wait_min: waits.max, avg_wait_min: avgWait };
+    }).sort((a,b)=> (b.busy_min - a.busy_min) || a.station_id.localeCompare(b.station_id));
+    const bottleneckStation = stationRows.length ? stationRows[0].station_id : '';
+    const rowsHtml = stationRows.map(r => `<tr>
+<td>${escHtml(r.station_id)}${r.station_id===bottleneckStation ? ' <span class="pill bneck">Bottleneck</span>' : ''}</td>
+<td>${r.busy_min}</td>
+<td>${r.idle_min}</td>
+<td>${(r.utilization*100).toFixed(1)}%</td>
+<td>${r.max_queue}</td>
+<td>${Math.round(r.total_wait_min)}</td>
+<td>${Math.round(r.max_wait_min)}</td>
+</tr>`).join('');
+    summaryEl.innerHTML = `<div>Event: ${ev.length} | Station: ${state.stations.length} | Makespan: ${makespan} dk | ${fmt(t0)} → ${fmt(t1)}</div>
+<table class="sumtbl">
+  <thead><tr><th>Station</th><th>Busy (min)</th><th>Idle (min)</th><th>Utilization (%)</th><th>Max Queue</th><th>Total Wait (min)</th><th>Max Wait (min)</th></tr></thead>
+  <tbody>${rowsHtml}</tbody>
+</table>`;
+
+    for(const sid of state.stations){
+      const lane = document.createElement('div');
+      lane.className = 'lane';
+
+      const label = document.createElement('div');
+      label.className = 'label';
+      label.textContent = sid;
+
+      const track = document.createElement('div');
+      track.className = 'track';
+      track.style.minWidth = trackWidth + 'px';
+
+      const items = (byStation.get(sid) || []).slice().sort((a,b)=>a.start-b.start);
+      for(const e of items){
+        const left = Math.max(0, durationMin(t0, e.start)) * pxPerMin;
+        const width = Math.max(2, durationMin(e.start, e.end) * pxPerMin);
+        const bar = document.createElement('div');
+        bar.className = 'bar';
+        bar.style.left = left + 'px';
+        bar.style.width = width + 'px';
+        bar.style.background = colorFor(e.batch_id);
+        bar.dataset.jobId = e.job_id || '';
+        bar.dataset.batchId = e.batch_id || '';
+        bar.dataset.stationId = e.station_id || '';
+        bar.dataset.stepId = e.step_id || '';
+        bar.dataset.startAt = e.start_at || '';
+        bar.dataset.endAt = e.end_at || '';
+        bar.dataset.durationMin = String(e.duration_min ?? 0);
+        bar.dataset.waitMin = String(e.wait_min ?? 0);
+        bar.removeAttribute('title');
+        bar.addEventListener('mouseenter', (evt)=>{
+          if(!hoverEl.checked) return;
+          showTT(ttTextFromBar(bar), evt.clientX, evt.clientY);
+        });
+        bar.addEventListener('mousemove', (evt)=>{
+          if(!hoverEl.checked) return;
+          moveTT(evt.clientX, evt.clientY);
+        });
+        bar.addEventListener('mouseleave', hideTT);
+
+        track.appendChild(bar);
+      }
+
+      lane.appendChild(label);
+      lane.appendChild(track);
+      chartEl.appendChild(lane);
+    }
+    applyHeatmap();
+    renderCharts();
+  }
+
+  fileEl.addEventListener('change', async ()=>{
+    const f = fileEl.files && fileEl.files[0];
+    if(!f) return;
+    const text = await f.text();
+    const events = parseCSV(text);
+    events.sort((a,b)=>a.start-b.start);
+
+    const stations = Array.from(new Set(events.map(e=>e.station_id))).sort();
+    const t0 = events.reduce((m,e)=> e.start<m?e.start:m, events[0].start);
+    const t1 = events.reduce((m,e)=> e.end>m?e.end:m, events[0].end);
+
+    state = { ...state, events, stations, t0, t1 };
+    render();
+  });
+
+  zoomEl.addEventListener('input', ()=>{
+    state.zoom = Number(zoomEl.value);
+    zoomValEl.textContent = state.zoom.toFixed(1) + 'x';
+    render();
+  });
+  hoverEl.addEventListener('change', ()=>{
+    if(!hoverEl.checked) hideTT();
+  });
+  const onThresholdInput = ()=> applyHeatmap();
+  warnEl.addEventListener('input', onThresholdInput);
+  hotEl.addEventListener('input', onThresholdInput);
+  window.addEventListener('resize', ()=> renderCharts());
+
+});
+</script>
+<div id="tt" style="
+position:fixed;
+display:none;
+pointer-events:none;
+background:rgba(20,20,20,0.92);
+color:white;
+padding:8px 10px;
+border-radius:8px;
+font:12px system-ui;
+z-index:9999;
+"></div>
+</body>
+</html>

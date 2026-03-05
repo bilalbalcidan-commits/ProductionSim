@@ -1,0 +1,22 @@
+{
+  "calendar": {
+    "working_days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "shifts": [
+      {"start_time": "08:00", "duration_minutes": 480},
+      {"start_time": "17:00", "duration_minutes": 420}
+    ]
+  },
+  "stations": ["M1", "M2", "QC", "M3", "BUF"],
+  "routes": {
+    "R1": [
+      {"station_id": "M1", "cycle_time_per_piece_min": 1.2, "transport_time_after_min": 10},
+      {"station_id": "M2", "cycle_time_per_piece_min": 1.0, "transport_time_after_min": 15},
+      {"station_id": "QC", "cycle_time_per_piece_min": 0.4, "transport_time_after_min": 5},
+      {"station_id": "M3", "cycle_time_per_piece_min": 1.4, "transport_time_after_min": 0}
+    ]
+  },
+  "jobs": [
+    {"job_id": "J1", "part_id": "P1", "quantity": 120, "batch_size": 20, "route_id": "R1", "start_dt": "2026-03-02T08:00:00"},
+    {"job_id": "J2", "part_id": "P2", "quantity": 80, "batch_size": 10, "route_id": "R1", "start_dt": "2026-03-02T08:00:00"}
+  ]
+}

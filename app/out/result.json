@@ -1,0 +1,432 @@
+{
+  "finished_jobs": [
+    "J1",
+    "J2"
+  ],
+  "events": [
+    {
+      "batch_id": "J1-B01",
+      "job_id": "J1",
+      "step_id": "R_J1-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T08:00:00",
+      "end_at": "2026-03-02T08:10:00"
+    },
+    {
+      "batch_id": "J1-B01",
+      "job_id": "J1",
+      "step_id": "R_J1-S2",
+      "station_id": "M2",
+      "start_at": "2026-03-02T10:10:00",
+      "end_at": "2026-03-02T15:13:00"
+    },
+    {
+      "batch_id": "J1-B01",
+      "job_id": "J1",
+      "step_id": "R_J1-S3",
+      "station_id": "M3",
+      "start_at": "2026-03-02T15:15:00",
+      "end_at": "2026-03-02T15:33:00"
+    },
+    {
+      "batch_id": "J1-B01",
+      "job_id": "J1",
+      "step_id": "R_J1-S4",
+      "station_id": "QC",
+      "start_at": "2026-03-02T15:33:00",
+      "end_at": "2026-03-02T15:38:00"
+    },
+    {
+      "batch_id": "J2-B01",
+      "job_id": "J2",
+      "step_id": "R_J2-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T08:10:00",
+      "end_at": "2026-03-02T08:22:00"
+    },
+    {
+      "batch_id": "J2-B01",
+      "job_id": "J2",
+      "step_id": "R_J2-S2",
+      "station_id": "M3",
+      "start_at": "2026-03-02T15:33:00",
+      "end_at": "2026-03-02T15:48:00"
+    },
+    {
+      "batch_id": "J2-B01",
+      "job_id": "J2",
+      "step_id": "R_J2-S3",
+      "station_id": "QC",
+      "start_at": "2026-03-02T15:48:00",
+      "end_at": "2026-03-02T15:52:00"
+    },
+    {
+      "batch_id": "J1-B02",
+      "job_id": "J1",
+      "step_id": "R_J1-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T08:22:00",
+      "end_at": "2026-03-02T08:32:00"
+    },
+    {
+      "batch_id": "J1-B02",
+      "job_id": "J1",
+      "step_id": "R_J1-S2",
+      "station_id": "M2",
+      "start_at": "2026-03-02T15:13:00",
+      "end_at": "2026-03-02T20:16:00"
+    },
+    {
+      "batch_id": "J1-B02",
+      "job_id": "J1",
+      "step_id": "R_J1-S3",
+      "station_id": "M3",
+      "start_at": "2026-03-02T20:18:00",
+      "end_at": "2026-03-02T20:36:00"
+    },
+    {
+      "batch_id": "J1-B02",
+      "job_id": "J1",
+      "step_id": "R_J1-S4",
+      "station_id": "QC",
+      "start_at": "2026-03-02T20:36:00",
+      "end_at": "2026-03-02T20:41:00"
+    },
+    {
+      "batch_id": "J2-B02",
+      "job_id": "J2",
+      "step_id": "R_J2-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T08:32:00",
+      "end_at": "2026-03-02T08:44:00"
+    },
+    {
+      "batch_id": "J2-B02",
+      "job_id": "J2",
+      "step_id": "R_J2-S2",
+      "station_id": "M3",
+      "start_at": "2026-03-02T20:36:00",
+      "end_at": "2026-03-02T20:51:00"
+    },
+    {
+      "batch_id": "J2-B02",
+      "job_id": "J2",
+      "step_id": "R_J2-S3",
+      "station_id": "QC",
+      "start_at": "2026-03-02T20:51:00",
+      "end_at": "2026-03-02T20:55:00"
+    },
+    {
+      "batch_id": "J1-B03",
+      "job_id": "J1",
+      "step_id": "R_J1-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T08:44:00",
+      "end_at": "2026-03-02T08:54:00"
+    },
+    {
+      "batch_id": "J1-B03",
+      "job_id": "J1",
+      "step_id": "R_J1-S2",
+      "station_id": "M2",
+      "start_at": "2026-03-02T20:16:00",
+      "end_at": "2026-03-03T01:19:00"
+    },
+    {
+      "batch_id": "J1-B03",
+      "job_id": "J1",
+      "step_id": "R_J1-S3",
+      "station_id": "M3",
+      "start_at": "2026-03-03T01:21:00",
+      "end_at": "2026-03-03T01:39:00"
+    },
+    {
+      "batch_id": "J1-B03",
+      "job_id": "J1",
+      "step_id": "R_J1-S4",
+      "station_id": "QC",
+      "start_at": "2026-03-03T01:39:00",
+      "end_at": "2026-03-03T01:44:00"
+    },
+    {
+      "batch_id": "J2-B03",
+      "job_id": "J2",
+      "step_id": "R_J2-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T08:54:00",
+      "end_at": "2026-03-02T09:06:00"
+    },
+    {
+      "batch_id": "J2-B03",
+      "job_id": "J2",
+      "step_id": "R_J2-S2",
+      "station_id": "M3",
+      "start_at": "2026-03-03T01:39:00",
+      "end_at": "2026-03-03T01:54:00"
+    },
+    {
+      "batch_id": "J2-B03",
+      "job_id": "J2",
+      "step_id": "R_J2-S3",
+      "station_id": "QC",
+      "start_at": "2026-03-03T01:54:00",
+      "end_at": "2026-03-03T01:58:00"
+    },
+    {
+      "batch_id": "J1-B04",
+      "job_id": "J1",
+      "step_id": "R_J1-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T09:06:00",
+      "end_at": "2026-03-02T09:16:00"
+    },
+    {
+      "batch_id": "J1-B04",
+      "job_id": "J1",
+      "step_id": "R_J1-S2",
+      "station_id": "M2",
+      "start_at": "2026-03-03T01:19:00",
+      "end_at": "2026-03-03T06:22:00"
+    },
+    {
+      "batch_id": "J1-B04",
+      "job_id": "J1",
+      "step_id": "R_J1-S3",
+      "station_id": "M3",
+      "start_at": "2026-03-03T06:24:00",
+      "end_at": "2026-03-03T06:42:00"
+    },
+    {
+      "batch_id": "J1-B04",
+      "job_id": "J1",
+      "step_id": "R_J1-S4",
+      "station_id": "QC",
+      "start_at": "2026-03-03T06:42:00",
+      "end_at": "2026-03-03T06:47:00"
+    },
+    {
+      "batch_id": "J2-B04",
+      "job_id": "J2",
+      "step_id": "R_J2-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T09:16:00",
+      "end_at": "2026-03-02T09:28:00"
+    },
+    {
+      "batch_id": "J2-B04",
+      "job_id": "J2",
+      "step_id": "R_J2-S2",
+      "station_id": "M3",
+      "start_at": "2026-03-03T06:42:00",
+      "end_at": "2026-03-03T06:57:00"
+    },
+    {
+      "batch_id": "J2-B04",
+      "job_id": "J2",
+      "step_id": "R_J2-S3",
+      "station_id": "QC",
+      "start_at": "2026-03-03T06:57:00",
+      "end_at": "2026-03-03T07:01:00"
+    },
+    {
+      "batch_id": "J1-B05",
+      "job_id": "J1",
+      "step_id": "R_J1-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T09:28:00",
+      "end_at": "2026-03-02T09:38:00"
+    },
+    {
+      "batch_id": "J1-B05",
+      "job_id": "J1",
+      "step_id": "R_J1-S2",
+      "station_id": "M2",
+      "start_at": "2026-03-03T06:22:00",
+      "end_at": "2026-03-03T11:25:00"
+    },
+    {
+      "batch_id": "J1-B05",
+      "job_id": "J1",
+      "step_id": "R_J1-S3",
+      "station_id": "M3",
+      "start_at": "2026-03-03T11:27:00",
+      "end_at": "2026-03-03T11:45:00"
+    },
+    {
+      "batch_id": "J1-B05",
+      "job_id": "J1",
+      "step_id": "R_J1-S4",
+      "station_id": "QC",
+      "start_at": "2026-03-03T11:45:00",
+      "end_at": "2026-03-03T11:50:00"
+    },
+    {
+      "batch_id": "J2-B05",
+      "job_id": "J2",
+      "step_id": "R_J2-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T09:38:00",
+      "end_at": "2026-03-02T09:50:00"
+    },
+    {
+      "batch_id": "J2-B05",
+      "job_id": "J2",
+      "step_id": "R_J2-S2",
+      "station_id": "M3",
+      "start_at": "2026-03-03T11:45:00",
+      "end_at": "2026-03-03T12:00:00"
+    },
+    {
+      "batch_id": "J2-B05",
+      "job_id": "J2",
+      "step_id": "R_J2-S3",
+      "station_id": "QC",
+      "start_at": "2026-03-03T12:00:00",
+      "end_at": "2026-03-03T12:04:00"
+    },
+    {
+      "batch_id": "J1-B06",
+      "job_id": "J1",
+      "step_id": "R_J1-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T09:50:00",
+      "end_at": "2026-03-02T10:00:00"
+    },
+    {
+      "batch_id": "J1-B06",
+      "job_id": "J1",
+      "step_id": "R_J1-S2",
+      "station_id": "M2",
+      "start_at": "2026-03-03T11:25:00",
+      "end_at": "2026-03-03T16:28:00"
+    },
+    {
+      "batch_id": "J1-B06",
+      "job_id": "J1",
+      "step_id": "R_J1-S3",
+      "station_id": "M3",
+      "start_at": "2026-03-03T16:30:00",
+      "end_at": "2026-03-03T16:48:00"
+    },
+    {
+      "batch_id": "J1-B06",
+      "job_id": "J1",
+      "step_id": "R_J1-S4",
+      "station_id": "QC",
+      "start_at": "2026-03-03T16:48:00",
+      "end_at": "2026-03-03T16:53:00"
+    },
+    {
+      "batch_id": "J2-B06",
+      "job_id": "J2",
+      "step_id": "R_J2-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T10:00:00",
+      "end_at": "2026-03-02T10:12:00"
+    },
+    {
+      "batch_id": "J2-B06",
+      "job_id": "J2",
+      "step_id": "R_J2-S2",
+      "station_id": "M3",
+      "start_at": "2026-03-03T16:48:00",
+      "end_at": "2026-03-03T17:03:00"
+    },
+    {
+      "batch_id": "J2-B06",
+      "job_id": "J2",
+      "step_id": "R_J2-S3",
+      "station_id": "QC",
+      "start_at": "2026-03-03T17:03:00",
+      "end_at": "2026-03-03T17:07:00"
+    },
+    {
+      "batch_id": "J1-B07",
+      "job_id": "J1",
+      "step_id": "R_J1-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T10:12:00",
+      "end_at": "2026-03-02T10:22:00"
+    },
+    {
+      "batch_id": "J1-B07",
+      "job_id": "J1",
+      "step_id": "R_J1-S2",
+      "station_id": "M2",
+      "start_at": "2026-03-03T16:28:00",
+      "end_at": "2026-03-03T21:31:00"
+    },
+    {
+      "batch_id": "J1-B07",
+      "job_id": "J1",
+      "step_id": "R_J1-S3",
+      "station_id": "M3",
+      "start_at": "2026-03-03T21:33:00",
+      "end_at": "2026-03-03T21:51:00"
+    },
+    {
+      "batch_id": "J1-B07",
+      "job_id": "J1",
+      "step_id": "R_J1-S4",
+      "station_id": "QC",
+      "start_at": "2026-03-03T21:51:00",
+      "end_at": "2026-03-03T21:56:00"
+    },
+    {
+      "batch_id": "J1-B08",
+      "job_id": "J1",
+      "step_id": "R_J1-S1",
+      "station_id": "M1",
+      "start_at": "2026-03-02T10:22:00",
+      "end_at": "2026-03-02T10:32:00"
+    },
+    {
+      "batch_id": "J1-B08",
+      "job_id": "J1",
+      "step_id": "R_J1-S2",
+      "station_id": "M2",
+      "start_at": "2026-03-03T21:31:00",
+      "end_at": "2026-03-04T02:34:00"
+    },
+    {
+      "batch_id": "J1-B08",
+      "job_id": "J1",
+      "step_id": "R_J1-S3",
+      "station_id": "M3",
+      "start_at": "2026-03-04T02:36:00",
+      "end_at": "2026-03-04T02:54:00"
+    },
+    {
+      "batch_id": "J1-B08",
+      "job_id": "J1",
+      "step_id": "R_J1-S4",
+      "station_id": "QC",
+      "start_at": "2026-03-04T02:54:00",
+      "end_at": "2026-03-04T02:59:00"
+    }
+  ],
+  "makespan_minutes": 2579,
+  "batch_count": 14,
+  "station_stats": [
+    {
+      "station_id": "M2",
+      "work_minutes": 2424,
+      "utilization": 0.9398991857309035
+    },
+    {
+      "station_id": "M3",
+      "work_minutes": 234,
+      "utilization": 0.09073284218689415
+    },
+    {
+      "station_id": "M1",
+      "work_minutes": 152,
+      "utilization": 0.058937572702597904
+    },
+    {
+      "station_id": "QC",
+      "work_minutes": 64,
+      "utilization": 0.02481582008530438
+    }
+  ]
+}
