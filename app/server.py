@@ -17,6 +17,42 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 app = Flask(__name__, static_folder=".", static_url_path="")
 
 
+def _safe_makespan_min(result) -> int:
+    direct = getattr(result, "makespan_minutes", None)
+    if isinstance(direct, (int, float)):
+        return int(direct)
+
+    events = getattr(result, "events", None) or []
+    if not events:
+        return 0
+
+    def _to_dt(v):
+        if isinstance(v, datetime):
+            return v
+        if isinstance(v, str):
+            s = v.strip()
+            if s.endswith("Z"):
+                s = s[:-1] + "+00:00"
+            try:
+                return datetime.fromisoformat(s)
+            except Exception:
+                return None
+        return None
+
+    starts = []
+    ends = []
+    for ev in events:
+        s = _to_dt(getattr(ev, "start_at", None))
+        e = _to_dt(getattr(ev, "end_at", None))
+        if s is not None and e is not None:
+            starts.append(s)
+            ends.append(e)
+
+    if not starts or not ends:
+        return 0
+    return int((max(ends) - min(starts)).total_seconds() // 60)
+
+
 def _to_float(x, default=0.0):
     if x is None:
         return float(default)
@@ -174,7 +210,7 @@ def simulate_api():
             },
             "summary": {
                 "events": len(result.events),
-                "makespan_min": result.makespan_min,
+                "makespan_min": _safe_makespan_min(result),
             },
         }
     )
