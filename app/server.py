@@ -182,14 +182,28 @@ def simulate_api():
         routes = [_coerce_route(x) for x in routes]
     if stations and isinstance(stations[0], dict):
         stations = [_coerce_station(x) for x in stations]
-    if not isinstance(cal, Calendar):
-        cal = Calendar(
-            shifts=[
-                Shift(name="S1", start=time(8, 0), end=time(18, 0)),
-                Shift(name="S2", start=time(20, 0), end=time(6, 0)),
-            ],
-            working_days={0, 1, 2, 3, 4},
-        )
+    if isinstance(cal, dict):
+        shifts_raw = cal.get("shifts") or []
+        working_days_raw = cal.get("working_days") or cal.get("workingDays") or []
+        shifts: list[Shift] = []
+        for i, s in enumerate(shifts_raw, start=1):
+            if isinstance(s, Shift):
+                shifts.append(s)
+                continue
+            if not isinstance(s, dict):
+                continue
+            start_raw = s.get("start")
+            end_raw = s.get("end")
+            if isinstance(start_raw, str):
+                start_raw = time.fromisoformat(start_raw)
+            if isinstance(end_raw, str):
+                end_raw = time.fromisoformat(end_raw)
+            if isinstance(start_raw, time) and isinstance(end_raw, time):
+                shifts.append(Shift(name=str(s.get("name") or f"S{i}"), start=start_raw, end=end_raw))
+        working_days = set(int(d) for d in working_days_raw) if working_days_raw else {0, 1, 2, 3, 4}
+        cal = Calendar(working_days=working_days, shifts=shifts) if shifts else None
+    elif not isinstance(cal, Calendar):
+        cal = None
 
     result = simulate(jobs=jobs, routes=routes, stations=stations, cal=cal)
 
