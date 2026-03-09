@@ -49,3 +49,17 @@ def test_transport_absorb_when_station_is_busy() -> None:
 
     # Batch2 S2: M2 is still busy long enough, so transport is absorbed.
     assert b2s2.start_at == b1s2.end_at
+
+
+def test_no_calendar_uses_deterministic_base_start() -> None:
+    stations = [Station(id="M1")]
+    route = Route(
+        id="R",
+        steps=[Step(id="R-S1", station_id="M1", cycle_time_per_piece_min=10, transport_after_minutes=0)],
+    )
+    jobs = [Job(job_id="J", route_id="R", quantity=1, batch_size=1, release_at=None)]
+
+    result = simulate(jobs=jobs, routes=[route], stations=stations, cal=None)
+
+    first = _event_by_batch_and_step(result, "J-B01", "R-S1")
+    assert first.start_at == datetime(2026, 3, 2, 8, 0, 0)

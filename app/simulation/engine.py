@@ -13,6 +13,8 @@ from .models import (
     StationStat,
 )
 
+DEFAULT_BASE_START = datetime(2026, 3, 2, 8, 0, 0)
+
 
 def make_batch_id(job_id: str, batch_index: int) -> str:
     # For future event generation identifiers.
@@ -133,12 +135,13 @@ def simulate(
     jobs: list[Job],
     routes: list[Route],
     stations: list[Station],
-    cal: Calendar,
+    cal: Calendar | None,
 ) -> SimulationResult:
-    _ = cal
+    use_calendar = cal is not None
     routes_by_id = {route.id: route for route in routes}
+    initial_available_at = datetime.min if use_calendar else DEFAULT_BASE_START
     available_at: dict[str, list[datetime]] = {
-        station.id: [datetime.min] * int(station.capacity) for station in stations
+        station.id: [initial_available_at] * int(station.capacity) for station in stations
     }
 
     events: list[BatchStepEvent] = []
@@ -153,7 +156,9 @@ def simulate(
             (batch_index, batch_qty)
             for batch_index, batch_qty in enumerate(batch_sizes, start=1)
         ]
-        release_at = job.release_at if job.release_at is not None else datetime.min
+        release_at = job.release_at if job.release_at is not None else (
+            datetime.min if use_calendar else DEFAULT_BASE_START
+        )
         release_groups.setdefault(release_at, []).append(job)
 
     dispatched_batches: list[tuple[Job, int, int]] = []
@@ -176,7 +181,9 @@ def simulate(
             raise ValueError(f"Route not found for job {job.job_id}: route_id={job.route_id}")
 
         batch_id = make_batch_id(job.job_id, batch_index)
-        current_time = job.release_at if job.release_at is not None else datetime.min
+        current_time = job.release_at if job.release_at is not None else (
+            datetime.min if use_calendar else DEFAULT_BASE_START
+        )
         prev_end: datetime | None = None
         prev_transport_min = 0
 
@@ -194,12 +201,15 @@ def simulate(
             else:
                 effective_ready = current_time
             start_at = max(effective_ready, slot_available_time)
-            start_at, end_at = apply_calendar(
-                start_at,
-                step_duration,
-                cal.shifts,
-                cal.working_days,
-            )
+            if use_calendar:
+                start_at, end_at = apply_calendar(
+                    start_at,
+                    step_duration,
+                    cal.shifts,
+                    cal.working_days,
+                )
+            else:
+                end_at = start_at + timedelta(minutes=step_duration)
             events.append(
                 BatchStepEvent(
                     batch_id=batch_id,
